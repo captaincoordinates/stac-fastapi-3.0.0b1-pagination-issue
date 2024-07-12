@@ -1,6 +1,6 @@
 #!/bin/bash
 
-versions=("3.0.0a4" "3.0.0b1" "3.0.0b2")
+versions=("3.0.0a4" "3.0.0b2")
 for SFAPI_VERSION in "${versions[@]}"
 do
     export SFAPI_VERSION
