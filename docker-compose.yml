@@ -1,0 +1,22 @@
+services:
+  api:
+    image: captaincoordiantes/stac-fastapi-3.0.0b1-pagination-issue
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SFAPI_VERSION: ${SFAPI_VERSION}
+    ports:
+      - 8123:80
+    healthcheck:
+      test: curl --fail http://localhost/_mgmt/ping
+      interval: 5s
+      timeout: 1s
+      retries: 5
+  
+  tester:
+    image: curlimages/curl:8.8.0
+    command: curl --fail 'http://api/collections/collection_id/items?token=query-string-token-value'
+    depends_on:
+      api:
+        condition: service_healthy

@@ -1,0 +1,3 @@
+stac-fastapi.api==3.0.0a4
+stac-fastapi.extensions==3.0.0a4
+stac-fastapi.types==3.0.0a4
